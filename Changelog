@@ -1,0 +1,14 @@
+.. _changelog:
+
+================
+ Change history
+================
+
+.. version-0.0.1:
+
+0.0.1
+=====
+:release-date: 2022-06-16 15:40 GMT+8
+:release-by: Wenxiang Wu
+
+- Inherit from https://github.com/ask/mode/commit/a104009f0c96790b9f6140179b4968da07a38c81

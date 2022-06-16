@@ -1,6 +1,6 @@
-import mode
+import fastasync
 
 
 def test_dir():
-    assert dir(mode)
-    assert '__version__' in dir(mode)
+    assert dir(fastasync)
+    assert '__version__' in dir(fastasync)

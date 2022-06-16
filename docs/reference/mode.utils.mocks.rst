@@ -1,11 +1,11 @@
 =====================================================
- ``mode.utils.mocks``
+ ``fastasync.utils.mocks``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.utils.mocks
+.. currentmodule:: fastasync.utils.mocks
 
-.. automodule:: mode.utils.mocks
+.. automodule:: fastasync.utils.mocks
     :members:
     :undoc-members:

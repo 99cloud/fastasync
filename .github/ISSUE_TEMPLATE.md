@@ -1,7 +1,7 @@
 ## Checklist
 
 - [ ] I have included information about relevant versions
-- [ ] I have verified that the issue persists when using the `master` branch of Mode.
+- [ ] I have verified that the issue persists when using the `master` branch of FastAsync.
 
 ## Steps to reproduce
 
@@ -24,6 +24,6 @@ Paste the full traceback (if there is any)
 # Versions
 
 * Python version
-* Mode version
+* FastAsync version
 * Operating system
 

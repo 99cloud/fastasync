@@ -22,9 +22,9 @@ from typing import (
 )
 
 import pytest
-from mode import Service, ServiceT
-from mode.services import ServiceBase, ServiceCallbacks
-from mode.utils.objects import (
+from fastasync import Service, ServiceT
+from fastasync.services import ServiceBase, ServiceCallbacks
+from fastasync.utils.objects import (
     ForwardRef,
     InvalidAnnotation,
     KeywordReduce,
@@ -45,7 +45,7 @@ from mode.utils.objects import (
     remove_optional,
     shortname,
 )
-from mode.utils.mocks import ANY, IN, Mock
+from fastasync.utils.mocks import ANY, IN, Mock
 
 PY37 = sys.version_info >= (3, 7)
 

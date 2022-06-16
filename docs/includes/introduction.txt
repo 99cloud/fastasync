@@ -1,16 +1,16 @@
 :Version: 4.3.2
-:Web: http://mode.readthedocs.org/
-:Download: http://pypi.org/project/mode
-:Source: http://github.com/ask/mode
+:Web: http://fastasync.readthedocs.org/
+:Download: http://pypi.org/project/fastasync
+:Source: http://github.com/99cloud/fastasync
 :Keywords: async, service, framework, actors, bootsteps, graph
 
-What is Mode?
+What is FastAsync?
 =============
 
-Mode is a very minimal Python library built-on top of AsyncIO that makes
+FastAsync is a very minimal Python library built-on top of AsyncIO that makes
 it much easier to use.
 
-In Mode your program is built out of services that you can start, stop,
+In FastAsync your program is built out of services that you can start, stop,
 restart and supervise.
 
 A service is just a class::
@@ -55,13 +55,13 @@ Services that depends on other services actually form a graph
 that you can visualize.
 
 Worker
-    Mode optionally provides a worker that you can use to start the program,
+    FastAsync optionally provides a worker that you can use to start the program,
     with support for logging, blocking detection, remote debugging and more.
 
     To start a worker add this to your program::
 
         if __name__ == '__main__':
-            from mode import Worker
+            from fastasync import Worker
             Worker(Service(), loglevel="info").execute_from_commandline()
 
     Then execute your program to start the worker:
@@ -156,12 +156,12 @@ To start the service, call ``await service.start()``::
 
     await service.start()
 
-Or you can use ``mode.Worker`` (or a subclass of this) to start your
+Or you can use ``fastasync.Worker`` (or a subclass of this) to start your
 services-based asyncio program from the console::
 
     if __name__ == '__main__':
-        import mode
-        worker = mode.Worker(
+        import fastasync
+        worker = fastasync.Worker(
             MyService(),
             loglevel='INFO',
             logfile=None,

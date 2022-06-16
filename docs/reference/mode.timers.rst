@@ -1,11 +1,11 @@
 =====================================================
- ``mode.timers``
+ ``fastasync.timers``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.timers
+.. currentmodule:: fastasync.timers
 
-.. automodule:: mode.timers
+.. automodule:: fastasync.timers
     :members:
     :undoc-members:

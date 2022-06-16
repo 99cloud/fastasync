@@ -3,10 +3,10 @@ import pytest
 from functools import reduce
 from itertools import chain
 from typing import List, NamedTuple, Tuple
-from mode.timers import Timer
-from mode.utils.aiter import aslice
-from mode.utils.contexts import asynccontextmanager
-from mode.utils.mocks import ANY, AsyncMock, Mock, patch
+from fastasync.timers import Timer
+from fastasync.utils.aiter import aslice
+from fastasync.utils.contexts import asynccontextmanager
+from fastasync.utils.mocks import ANY, AsyncMock, Mock, patch
 
 
 @pytest.mark.asyncio
@@ -121,7 +121,7 @@ class test_Timer:
         assert len(clock_values) == len(intervals) * 2
         clock.side_effect = clock_values
 
-        with patch('mode.timers.logger') as logger:
+        with patch('fastasync.timers.logger') as logger:
             await self.assert_intervals(timer, intervals)
             yield logger
 

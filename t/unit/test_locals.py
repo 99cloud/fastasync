@@ -14,7 +14,7 @@ from typing import (
     Sequence,
 )
 
-from mode.locals import (
+from fastasync.locals import (
     AsyncContextManagerProxy,
     AsyncGeneratorProxy,
     AsyncIterableProxy,
@@ -32,15 +32,15 @@ from mode.locals import (
     SetProxy,
     maybe_evaluate,
 )
-from mode.utils.mocks import MagicMock, Mock
-from mode.utils.typing import AsyncGenerator
+from fastasync.utils.mocks import MagicMock, Mock
+from fastasync.utils.typing import AsyncGenerator
 
 
 class test_Proxy:
 
     def test_std_class_attributes(self):
         assert Proxy.__name__ == 'Proxy'
-        assert Proxy.__module__ == 'mode.locals'
+        assert Proxy.__module__ == 'fastasync.locals'
         assert isinstance(Proxy.__doc__, str)
 
     def test_doc(self):

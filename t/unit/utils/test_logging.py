@@ -6,7 +6,7 @@ import pytest
 
 from copy import deepcopy
 
-from mode.utils.logging import (
+from fastasync.utils.logging import (
     HAS_STACKLEVEL,
     CompositeLogger,
     DefaultFormatter,
@@ -28,7 +28,7 @@ from mode.utils.logging import (
     redirect_stdouts,
     setup_logging,
 )
-from mode.utils.mocks import ANY, AsyncMock, Mock, call, patch
+from fastasync.utils.mocks import ANY, AsyncMock, Mock, call, patch
 
 
 def test__logger_config():
@@ -107,7 +107,7 @@ class test_CompositeLogger:
 
     def test_dev__enabled(self, log):
         log.log = Mock()
-        with patch('mode.utils.logging.DEVLOG', True):
+        with patch('fastasync.utils.logging.DEVLOG', True):
             log.dev('msg', 1, k=2)
             log_called_with(
                 log,
@@ -115,7 +115,7 @@ class test_CompositeLogger:
 
     def test_dev__disabled(self, log):
         log.info = Mock()
-        with patch('mode.utils.logging.DEVLOG', False):
+        with patch('fastasync.utils.logging.DEVLOG', False):
             log.dev('msg', 1, k=2)
             log.info.assert_not_called()
 
@@ -167,7 +167,7 @@ def test_level_name(input, expected):
 class test_setup_logging:
 
     def test_default(self):
-        with patch('mode.utils.logging._setup_logging') as _sl:
+        with patch('fastasync.utils.logging._setup_logging') as _sl:
             setup_logging(loglevel='INFO', logfile=None)
 
             _sl.assert_called_once_with(
@@ -179,7 +179,7 @@ class test_setup_logging:
             )
 
     def test_logfile(self):
-        with patch('mode.utils.logging._setup_logging') as _sl:
+        with patch('fastasync.utils.logging._setup_logging') as _sl:
             setup_logging(loglevel='INFO', logfile='foo.txt')
 
             _sl.assert_called_once_with(
@@ -192,7 +192,7 @@ class test_setup_logging:
 
     def test_io(self):
         logfile = Mock()
-        with patch('mode.utils.logging._setup_logging') as _sl:
+        with patch('fastasync.utils.logging._setup_logging') as _sl:
             setup_logging(loglevel='INFO', logfile=logfile)
 
             _sl.assert_called_once_with(
@@ -206,7 +206,7 @@ class test_setup_logging:
     def test_io_no_tty(self):
         logfile = Mock()
         logfile.isatty.side_effect = AttributeError()
-        with patch('mode.utils.logging._setup_logging') as _sl:
+        with patch('fastasync.utils.logging._setup_logging') as _sl:
             setup_logging(loglevel='INFO', logfile=logfile)
 
             _sl.assert_called_once_with(
@@ -222,11 +222,11 @@ class test__setup_logging:
 
     def setup_method(self, method):
         self.extension_formatter_patch = patch(
-            'mode.utils.logging.ExtensionFormatter')
+            'fastasync.utils.logging.ExtensionFormatter')
         self.extension_formatter = self.extension_formatter_patch.start()
-        self.colorlog_patch = patch('mode.utils.logging.colorlog')
+        self.colorlog_patch = patch('fastasync.utils.logging.colorlog')
         self.colorlog = self.colorlog_patch.start()
-        self.logging_patch = patch('mode.utils.logging.logging')
+        self.logging_patch = patch('fastasync.utils.logging.logging')
         self.logging = self.logging_patch.start()
 
     def teardown_method(self):
@@ -378,7 +378,7 @@ class test_flight_recorder:
 
     def test_wrap(self, bb):
         obj = Mock()
-        with patch('mode.utils.logging.Logwrapped') as Logwrapped:
+        with patch('fastasync.utils.logging.Logwrapped') as Logwrapped:
             ret = bb.wrap(logging.ERROR, obj)
             assert ret is Logwrapped.return_value
             Logwrapped.assert_called_once_with(
@@ -390,7 +390,7 @@ class test_flight_recorder:
     def test_activate(self, bb):
         bb._fut = None
         bb._waiting = Mock()
-        with patch('mode.utils.logging.current_task') as current_task:
+        with patch('fastasync.utils.logging.current_task') as current_task:
             with patch('asyncio.ensure_future') as ensure_future:
                 bb.activate()
                 assert bb.started_at_date
@@ -435,7 +435,7 @@ class test_flight_recorder:
         )
 
     def test__buffer_log(self, bb):
-        with patch('mode.utils.logging.asctime') as asctime:
+        with patch('fastasync.utils.logging.asctime') as asctime:
             bb._buffer_log(
                 logging.ERROR, 'msg %r %(foo)s', (1,), {'foo': 'bar'})
             assert bb._logs[-1] == LogMessage(
@@ -477,7 +477,7 @@ class test_flight_recorder:
         assert not bb._logs
         bb.enabled_by = Mock()
         with patch('asyncio.sleep', AsyncMock()):
-            with patch('mode.utils.logging.format_task_stack') as fts:
+            with patch('fastasync.utils.logging.format_task_stack') as fts:
                 await bb._waiting()
             fts.assert_called_once_with(bb.enabled_by)
 
@@ -600,7 +600,7 @@ async def test_on_timeout(extra_context):
     # Test no errors when there's no active flight recorder
     _assert_log_severities(on_timeout)
 
-    with patch('mode.utils.logging.asctime') as asctime:
+    with patch('fastasync.utils.logging.asctime') as asctime:
         asctime.return_value = 'TIME'
         # Test logging to active flight recorder (with nesting)
         with flight_recorder(logger, timeout=300) as fl1:

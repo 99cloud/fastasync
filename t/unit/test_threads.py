@@ -1,15 +1,15 @@
 import asyncio
 import threading
 import pytest
-from mode.threads import (
+from fastasync.threads import (
     MethodQueue,
     QueueServiceThread,
     ServiceThread,
     WorkerThread,
 )
-from mode.utils.futures import done_future
-from mode.utils.locks import Event
-from mode.utils.mocks import ANY, AsyncMock, Mock, patch
+from fastasync.utils.futures import done_future
+from fastasync.utils.locks import Event
+from fastasync.utils.mocks import ANY, AsyncMock, Mock, patch
 
 
 class test_WorkerThread:

@@ -1,11 +1,11 @@
 =====================================================
- ``mode.utils.aiter``
+ ``fastasync.utils.aiter``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.utils.aiter
+.. currentmodule:: fastasync.utils.aiter
 
-.. automodule:: mode.utils.aiter
+.. automodule:: fastasync.utils.aiter
     :members:
     :undoc-members:

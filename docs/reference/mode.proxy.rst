@@ -1,11 +1,11 @@
 =====================================================
- ``mode.proxy``
+ ``fastasync.proxy``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.proxy
+.. currentmodule:: fastasync.proxy
 
-.. automodule:: mode.proxy
+.. automodule:: fastasync.proxy
     :members:
     :undoc-members:

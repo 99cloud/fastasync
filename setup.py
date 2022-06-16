@@ -11,7 +11,7 @@ except (AttributeError, ImportError):
         return 'Python'
 from setuptools import find_packages, setup
 
-NAME = 'mode'
+NAME = 'fastasync'
 EXTENSIONS = {'eventlet', 'gevent', 'uvloop'}
 E_UNSUPPORTED_PYTHON = '%s 1.0 requires %%s %%s or later!' % (NAME,)
 
@@ -133,7 +133,7 @@ setup(
     packages=packages,
     include_package_data=True,
     # PEP-561: https://www.python.org/dev/peps/pep-0561/
-    package_data={'mode': ['py.typed']},
+    package_data={'fastasync': ['py.typed']},
     zip_safe=False,
     install_requires=reqs('default.txt'),
     tests_require=reqs('test.txt'),

@@ -2,7 +2,7 @@ import asyncio
 from datetime import timedelta
 from time import monotonic
 import pytest
-from mode.utils.times import (
+from fastasync.utils.times import (
     Bucket,
     TIME_MONOTONIC,
     TokenBucket,

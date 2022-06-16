@@ -1,10 +1,10 @@
 =====================================================
- ``mode.loop.eventlet``
+ ``fastasync.loop.eventlet``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.loop.eventlet
+.. currentmodule:: fastasync.loop.eventlet
 
 .. warning::
 

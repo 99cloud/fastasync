@@ -1,11 +1,11 @@
 =====================================================
- ``mode.utils.futures``
+ ``fastasync.utils.futures``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.utils.futures
+.. currentmodule:: fastasync.utils.futures
 
-.. automodule:: mode.utils.futures
+.. automodule:: fastasync.utils.futures
     :members:
     :undoc-members:

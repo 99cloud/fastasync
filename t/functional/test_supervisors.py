@@ -1,7 +1,7 @@
 import asyncio
 import pytest
-from mode import Service
-from mode.supervisors import (
+from fastasync import Service
+from fastasync.supervisors import (
     ForfeitOneForAllSupervisor,
     ForfeitOneForOneSupervisor,
     OneForAllSupervisor,

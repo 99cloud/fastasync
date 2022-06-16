@@ -1,7 +1,7 @@
 """AsyncIO event loop implementations.
 
 This contains a registry of different AsyncIO loop implementations
-to be used with Mode.
+to be used with FastAsync.
 
 The choices available are:
 
@@ -18,8 +18,8 @@ eventlet
     when your program starts (e.g. add it as the top import of your
     entrypoint module)::
 
-        >>> import mode.loop
-        >>> mode.loop.use('eventlet')
+        >>> import fastasync.loop
+        >>> fastasync.loop.use('eventlet')
 
 gevent
     Use :pypi:`gevent` as the event loop.
@@ -35,8 +35,8 @@ gevent
     when your program starts (e.g. add it as the top import of your
     entrypoint module)::
 
-        >>> import mode.loop
-        >>> mode.loop.use('gevent')
+        >>> import fastasync.loop
+        >>> fastasync.loop.use('gevent')
 uvloop
     Event loop using :pypi:`uvloop`.
 
@@ -44,8 +44,8 @@ uvloop
     when your program starts (e.g. add it as the top import of your
     entrypoint module)::
 
-        >>> import mode.loop
-        >>> mode.loop.use('uvloop')
+        >>> import fastasync.loop
+        >>> fastasync.loop.use('uvloop')
 """
 
 import importlib
@@ -55,9 +55,9 @@ __all__ = ['LOOPS', 'use']
 
 LOOPS: Mapping[str, Optional[str]] = {
     'aio': None,
-    'eventlet': 'mode.loop.eventlet',
-    'gevent': 'mode.loop.gevent',
-    'uvloop': 'mode.loop.uvloop',
+    'eventlet': 'fastasync.loop.eventlet',
+    'gevent': 'fastasync.loop.gevent',
+    'uvloop': 'fastasync.loop.uvloop',
 }
 
 

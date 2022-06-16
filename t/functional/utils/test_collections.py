@@ -1,6 +1,6 @@
 import pickle
 import pytest
-from mode.utils.collections import (
+from fastasync.utils.collections import (
     AttributeDictMixin,
     DictAttribute,
     FastUserDict,
@@ -11,7 +11,7 @@ from mode.utils.collections import (
     ManagedUserSet,
     force_mapping,
 )
-from mode.utils.mocks import Mock, call, patch
+from fastasync.utils.mocks import Mock, call, patch
 
 
 class test_FastUserDict:
@@ -645,7 +645,7 @@ def test_force_mapping():
     obj._wrapped = Object('bar')
     assert force_mapping(obj)['name'] == 'foo'
 
-    with patch('mode.utils.collections.LazyObject', Object):
+    with patch('fastasync.utils.collections.LazyObject', Object):
         assert force_mapping(obj)['name'] == 'bar'
 
 

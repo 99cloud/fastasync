@@ -1,17 +1,15 @@
 # -*- coding: utf-8 -*-
 """AsyncIO Service-based programming."""
-# :copyright: (c) 2017-2020, Robinhood Markets
-#             All rights reserved.
 # :license:   BSD (3 Clause), see LICENSE for more details.
 import re
 import sys
 import typing
 from typing import Any, Mapping, NamedTuple, Sequence
 
-__version__ = '4.3.2'
-__author__ = 'Robinhood Markets'
-__contact__ = 'opensource@robinhood.com'
-__homepage__ = 'https://github.com/ask/mode'
+__version__ = '0.0.1'
+__author__ = 'Wenxiang Wu'
+__contact__ = 'wu.wenxiang@99cloud.net'
+__homepage__ = 'https://github.com/99cloud/fastasync'
 __docformat__ = 'restructuredtext'
 
 # -eof meta-
@@ -29,7 +27,7 @@ class version_info_t(NamedTuple):
 # so we have to parse the version here.
 _match = re.match(r'(\d+)\.(\d+).(\d+)(.+)?', __version__)
 if _match is None:  # pragma: no cover
-    raise RuntimeError('MODE VERSION HAS ILLEGAL FORMAT')
+    raise RuntimeError('FASTASYNC VERSION HAS ILLEGAL FORMAT')
 _temp = _match.groups()
 VERSION = version_info = version_info_t(
     int(_temp[0]), int(_temp[1]), int(_temp[2]), _temp[3] or '', '')
@@ -93,9 +91,9 @@ __all__ = [
 from types import ModuleType  # noqa
 
 all_by_module: Mapping[str, Sequence[str]] = {
-    'mode.services': ['Service', 'task', 'timer'],
-    'mode.signals': ['BaseSignal', 'Signal', 'SyncSignal'],
-    'mode.supervisors': [
+    'fastasync.services': ['Service', 'task', 'timer'],
+    'fastasync.signals': ['BaseSignal', 'Signal', 'SyncSignal'],
+    'fastasync.supervisors': [
         'ForfeitOneForAllSupervisor',
         'ForfeitOneForOneSupervisor',
         'OneForAllSupervisor',
@@ -103,13 +101,13 @@ all_by_module: Mapping[str, Sequence[str]] = {
         'SupervisorStrategy',
         'CrashingSupervisor',
     ],
-    'mode.types.services': ['ServiceT'],
-    'mode.types.signals': ['BaseSignalT', 'SignalT', 'SyncSignalT'],
-    'mode.types.supervisors': ['SupervisorStrategyT'],
-    'mode.utils.times': ['Seconds', 'want_seconds'],
-    'mode.utils.logging': ['flight_recorder', 'get_logger', 'setup_logging'],
-    'mode.utils.objects': ['label', 'shortlabel'],
-    'mode.worker': ['Worker'],
+    'fastasync.types.services': ['ServiceT'],
+    'fastasync.types.signals': ['BaseSignalT', 'SignalT', 'SyncSignalT'],
+    'fastasync.types.supervisors': ['SupervisorStrategyT'],
+    'fastasync.utils.times': ['Seconds', 'want_seconds'],
+    'fastasync.utils.logging': ['flight_recorder', 'get_logger', 'setup_logging'],
+    'fastasync.utils.objects': ['label', 'shortlabel'],
+    'fastasync.worker': ['Worker'],
 }
 
 object_origins = {}

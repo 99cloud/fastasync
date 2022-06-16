@@ -1,11 +1,11 @@
 =====================================================
- ``mode.utils.types.graphs``
+ ``fastasync.utils.types.graphs``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.utils.types.graphs
+.. currentmodule:: fastasync.utils.types.graphs
 
-.. automodule:: mode.utils.types.graphs
+.. automodule:: fastasync.utils.types.graphs
     :members:
     :undoc-members:

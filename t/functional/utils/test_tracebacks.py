@@ -1,7 +1,7 @@
 import asyncio
 import pytest
-from mode.utils.mocks import Mock, patch
-from mode.utils.tracebacks import Traceback, format_task_stack
+from fastasync.utils.mocks import Mock, patch
+from fastasync.utils.tracebacks import Traceback, format_task_stack
 
 
 @pytest.mark.asyncio

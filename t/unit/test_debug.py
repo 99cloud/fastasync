@@ -1,8 +1,8 @@
 import signal
 import sys
 import pytest
-from mode.debug import Blocking, BlockingDetector
-from mode.utils.mocks import AsyncMock, Mock, patch
+from fastasync.debug import Blocking, BlockingDetector
+from fastasync.utils.mocks import AsyncMock, Mock, patch
 
 
 @pytest.mark.skipif(sys.platform == 'win32', reason='win32: no SIGALRM')
@@ -37,7 +37,7 @@ class test_BlockingDetector:
         block._arm.asssert_called_once_with(0)
 
     def test__arm(self, block):
-        with patch('mode.debug.arm_alarm') as arm_alarm:
+        with patch('fastasync.debug.arm_alarm') as arm_alarm:
             block._arm(1.11)
             arm_alarm.assert_called_once_with(1.11)
 

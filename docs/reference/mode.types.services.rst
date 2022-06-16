@@ -1,11 +1,11 @@
 =====================================================
- ``mode.types.services``
+ ``fastasync.types.services``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.types.services
+.. currentmodule:: fastasync.types.services
 
-.. automodule:: mode.types.services
+.. automodule:: fastasync.types.services
     :members:
     :undoc-members:

@@ -1,8 +1,8 @@
 from typing import Any
 from weakref import ref
-from mode import label
-from mode.signals import Signal, SignalT, SyncSignal, SyncSignalT
-from mode.utils.mocks import Mock
+from fastasync import label
+from fastasync.signals import Signal, SignalT, SyncSignal, SyncSignalT
+from fastasync.utils.mocks import Mock
 import pytest
 
 

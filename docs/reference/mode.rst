@@ -1,11 +1,11 @@
 =====================================================
- ``mode``
+ ``fastasync``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode
+.. currentmodule:: fastasync
 
-.. automodule:: mode
+.. automodule:: fastasync
     :members:
     :undoc-members:

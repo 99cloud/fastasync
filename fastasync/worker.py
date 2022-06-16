@@ -48,7 +48,7 @@ logger = logging.get_logger(__name__)
 EX_OK = getattr(os, 'EX_OK', 0)
 EX_FAILURE = 1
 EX_OSERR = getattr(os, 'EX_OSERR', 71)
-BLOCK_DETECTOR = 'mode.debug:BlockingDetector'
+BLOCK_DETECTOR = 'fastasync.debug:BlockingDetector'
 
 
 class _TupleAsListRepr(reprlib.Repr):
@@ -77,7 +77,7 @@ def exiting(*,
 
 
 class Worker(Service):
-    """Start mode service from the command-line."""
+    """Start fastasync service from the command-line."""
 
     BLOCK_DETECTOR: ClassVar[str] = BLOCK_DETECTOR
 

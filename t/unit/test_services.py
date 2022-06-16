@@ -1,9 +1,9 @@
 import asyncio
 from typing import ContextManager
-from mode import Service
-from mode.services import Diag, ServiceTask, WaitResult
-from mode.utils.logging import get_logger
-from mode.utils.mocks import (
+from fastasync import Service
+from fastasync.services import Diag, ServiceTask, WaitResult
+from fastasync.utils.logging import get_logger
+from fastasync.utils.mocks import (
     ANY,
     AsyncContextManagerMock,
     AsyncMock,
@@ -12,7 +12,7 @@ from mode.utils.mocks import (
     call,
     patch,
 )
-from mode.utils.typing import AsyncContextManager
+from fastasync.utils.typing import AsyncContextManager
 import pytest
 
 
@@ -450,13 +450,13 @@ class test_Service:
 
         class Y(X):
             logger = get_logger(__name__)
-            logger.__modex__ = False
+            logger.__fastasyncx__ = False
 
         assert Y.logger
         Y._init_subclass_logger()
         type(service).logger = None
         service._init_subclass_logger()
-        assert type(service).logger.__modex__
+        assert type(service).logger.__fastasyncx__
         service._init_subclass_logger()
 
     def test_get_set_loop(self, *, service):
@@ -713,7 +713,7 @@ class test_Service:
 
     @pytest.mark.asyncio
     async def test_itertimer(self, *, service):
-        with patch('mode.services.Timer') as itertimer:
+        with patch('fastasync.services.Timer') as itertimer:
 
             async def on_itertimer(*args, **kwargs):
                 yield 1.0
@@ -728,7 +728,7 @@ class test_Service:
 
     @pytest.mark.asyncio
     async def test_itertimer__first_stop(self, *, service):
-        with patch('mode.services.Timer') as itertimer:
+        with patch('fastasync.services.Timer') as itertimer:
 
             async def on_itertimer(*args, **kwargs):
                 service._stopped.set()
@@ -740,7 +740,7 @@ class test_Service:
 
     @pytest.mark.asyncio
     async def test_itertimer__second_stop(self, *, service):
-        with patch('mode.services.Timer') as itertimer:
+        with patch('fastasync.services.Timer') as itertimer:
 
             async def on_itertimer(*args, **kwargs):
                 for val in [0.784512, 0.2, 0.3]:
@@ -763,7 +763,7 @@ class test_Service:
 
     @pytest.mark.asyncio
     async def test_itertimer__third_stop(self, *, service):
-        with patch('mode.services.Timer') as itertimer:
+        with patch('fastasync.services.Timer') as itertimer:
 
             async def on_itertimer(*args, **kwargs):
                 yield 0.1341

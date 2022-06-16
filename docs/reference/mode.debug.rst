@@ -1,11 +1,11 @@
 =====================================================
- ``mode.debug``
+ ``fastasync.debug``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.debug
+.. currentmodule:: fastasync.debug
 
-.. automodule:: mode.debug
+.. automodule:: fastasync.debug
     :members:
     :undoc-members:

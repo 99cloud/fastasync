@@ -1,11 +1,11 @@
 =====================================================
- ``mode.exceptions``
+ ``fastasync.exceptions``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.exceptions
+.. currentmodule:: fastasync.exceptions
 
-.. automodule:: mode.exceptions
+.. automodule:: fastasync.exceptions
     :members:
     :undoc-members:

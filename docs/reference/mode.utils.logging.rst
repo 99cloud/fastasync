@@ -1,11 +1,11 @@
 =====================================================
- ``mode.utils.logging``
+ ``fastasync.utils.logging``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.utils.logging
+.. currentmodule:: fastasync.utils.logging
 
-.. automodule:: mode.utils.logging
+.. automodule:: fastasync.utils.logging
     :members:
     :undoc-members:

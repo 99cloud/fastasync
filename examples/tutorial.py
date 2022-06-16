@@ -2,9 +2,9 @@
 from typing import Any, List, MutableMapping
 
 from aiohttp.web import Application
-from mode import Service
-from mode.threads import ServiceThread
-from mode.utils.objects import cached_property
+from fastasync import Service
+from fastasync.threads import ServiceThread
+from fastasync.utils.objects import cached_property
 
 
 class User:
@@ -151,5 +151,5 @@ class App(Service):
 app = App()
 
 if __name__ == '__main__':
-    from mode.worker import Worker
+    from fastasync.worker import Worker
     Worker(app, loglevel='info', daemon=True).execute_from_commandline()

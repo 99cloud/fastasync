@@ -1,11 +1,11 @@
 =====================================================
- ``mode.utils.contexts``
+ ``fastasync.utils.contexts``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.utils.contexts
+.. currentmodule:: fastasync.utils.contexts
 
-.. automodule:: mode.utils.contexts
+.. automodule:: fastasync.utils.contexts
     :members:
     :undoc-members:

@@ -1,4 +1,4 @@
-"""Type classes for :mod:`mode.utils.graphs`."""
+"""Type classes for :mod:`fastasync.utils.graphs`."""
 import abc
 from typing import (
     Any, Generic, IO, Iterable, Mapping, MutableMapping, Sequence, TypeVar,

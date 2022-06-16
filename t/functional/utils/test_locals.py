@@ -2,7 +2,7 @@ import asyncio
 import pytest
 import time
 import threading
-from mode.utils.locals import LocalStack
+from fastasync.utils.locals import LocalStack
 
 
 class Request:

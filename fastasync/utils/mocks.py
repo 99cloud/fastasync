@@ -152,7 +152,7 @@ class AsyncContextMock(unittest.mock.Mock):
         import http
         from aiohttp.client import ClientSession
         from aiohttp.web import Response
-        from mode.utils.mocks import AsyncContextManagerMock, AsyncMock, Mock
+        from fastasync.utils.mocks import AsyncContextManagerMock, AsyncMock, Mock
 
         @pytest.fixture()
         def session(monkeypatch):

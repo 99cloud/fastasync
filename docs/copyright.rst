@@ -1,7 +1,7 @@
 Copyright
 =========
 
-*Mode User Manual*
+*FastAsync User Manual*
 
 by Ask Solem
 
@@ -22,7 +22,7 @@ a license compatible to this one.
 
 .. note::
 
-   While the Mode *documentation* is offered under the
+   While the FastAsync *documentation* is offered under the
    Creative Commons *Attribution-ShareAlike 4.0 International* license
-   the Mode *software* is offered under the
+   the FastAsync *software* is offered under the
    `BSD License (3 Clause) <http://www.opensource.org/licenses/BSD-3-Clause>`_

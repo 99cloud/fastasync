@@ -1,6 +1,6 @@
 import pytest
-from mode.utils.compat import isatty, want_bytes, want_str
-from mode.utils.mocks import Mock
+from fastasync.utils.compat import isatty, want_bytes, want_str
+from fastasync.utils.mocks import Mock
 
 
 @pytest.mark.parametrize('input,expected', [

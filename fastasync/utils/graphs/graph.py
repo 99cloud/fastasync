@@ -14,8 +14,8 @@ from typing import (
     cast,
 )
 
-from mode.utils.typing import Counter
-from mode.utils.types.graphs import DependencyGraphT, GraphFormatterT, _T
+from fastasync.utils.typing import Counter
+from fastasync.utils.types.graphs import DependencyGraphT, GraphFormatterT, _T
 
 from .formatter import GraphFormatter
 

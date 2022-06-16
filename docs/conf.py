@@ -8,14 +8,14 @@ sys.path.append('.')
 extensions = []
 
 globals().update(conf.build_config(
-    'mode', __file__,
-    project='Mode',
+    'fastasync', __file__,
+    project='FastAsync',
     # version_dev='2.0',
     # version_stable='1.4',
-    canonical_url='http://mode.readthedocs.io',
+    canonical_url='http://fastasync.readthedocs.io',
     webdomain='',
-    github_project='ask/mode',
-    copyright='2017-2020',
+    github_project='99cloud/fastasync',
+    copyright='2021-2022',
     html_logo='images/logo.png',
     html_favicon='images/favicon.ico',
     html_prepend_sidebars=[],
@@ -31,15 +31,15 @@ globals().update(conf.build_config(
     # from pathlib import Path
     # path_additions=[Path.cwd().parent / 'testproj']
     apicheck_ignore_modules=[
-        'mode.loop.eventlet',
-        'mode.loop.gevent',
-        'mode.loop.uvloop',
-        'mode.loop._gevent_loop',
-        'mode.utils',
-        'mode.utils._py37_contextlib',
-        'mode.utils.graphs.formatter',
-        'mode.utils.graphs.graph',
-        'mode.utils.types',
+        'fastasync.loop.eventlet',
+        'fastasync.loop.gevent',
+        'fastasync.loop.uvloop',
+        'fastasync.loop._gevent_loop',
+        'fastasync.utils',
+        'fastasync.utils._py37_contextlib',
+        'fastasync.utils.graphs.formatter',
+        'fastasync.utils.graphs.graph',
+        'fastasync.utils.types',
     ],
 ))
 

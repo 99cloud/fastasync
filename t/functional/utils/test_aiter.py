@@ -1,5 +1,5 @@
 from typing import AsyncIterable
-from mode.utils.aiter import (
+from fastasync.utils.aiter import (
     aenumerate,
     aiter,
     alist,

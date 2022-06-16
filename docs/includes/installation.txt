@@ -3,25 +3,25 @@
 Installation
 ============
 
-You can install Mode either via the Python Package Index (PyPI)
+You can install FastAsync either via the Python Package Index (PyPI)
 or from source.
 
 To install using `pip`::
 
-    $ pip install -U mode
+    $ pip install -U fastasync
 
 .. _installing-from-source:
 
 Downloading and installing from source
 --------------------------------------
 
-Download the latest version of Mode from
-http://pypi.org/project/mode
+Download the latest version of FastAsync from
+http://pypi.org/project/fastasync
 
 You can install it by doing the following::
 
-    $ tar xvfz mode-0.0.0.tar.gz
-    $ cd mode-0.0.0
+    $ tar xvfz fastasync-0.0.0.tar.gz
+    $ cd fastasync-0.0.0
     $ python setup.py build
     # python setup.py install
 
@@ -36,7 +36,7 @@ Using the development version
 With pip
 ~~~~~~~~
 
-You can install the latest snapshot of Mode using the following
+You can install the latest snapshot of FastAsync using the following
 pip command::
 
-    $ pip install https://github.com/ask/mode/zipball/master#egg=mode
+    $ pip install https://github.com/99cloud/fastasync/zipball/master#egg=fastasync

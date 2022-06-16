@@ -4,10 +4,10 @@
  Services
 ==================
 
-.. module:: mode
+.. module:: fastasync
     :noindex:
 
-.. currentmodule:: mode
+.. currentmodule:: fastasync
 
 .. contents::
     :local:
@@ -111,7 +111,7 @@ Child services can be added in three ways,
     .. sourcecode:: python
 
         from typing import Iterable
-        from mode import Service, ServiceT
+        from fastasync import Service, ServiceT
 
         class MyService(Service):
 
@@ -216,7 +216,7 @@ The ``self.log`` delegate contains shortcuts for logging:
 
     # examples/logging.py
 
-    from mode import Service
+    from fastasync import Service
 
 
     class MyService(Service):
@@ -240,7 +240,7 @@ if you want to manually define the logger used by the service:
 
     # examples/manual_service_logger.py
 
-    from mode import Service, get_logger
+    from fastasync import Service, get_logger
 
     logger = get_logger(__name__)
 

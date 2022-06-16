@@ -1,11 +1,11 @@
 =====================================================
- ``mode.utils.loops``
+ ``fastasync.utils.loops``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.utils.loops
+.. currentmodule:: fastasync.utils.loops
 
-.. automodule:: mode.utils.loops
+.. automodule:: fastasync.utils.loops
     :members:
     :undoc-members:

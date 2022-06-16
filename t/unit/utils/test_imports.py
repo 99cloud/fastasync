@@ -2,7 +2,7 @@ import os
 import sys
 import pytest
 from contextlib import contextmanager
-from mode.utils.imports import (
+from fastasync.utils.imports import (
     EntrypointExtension,
     FactoryMapping,
     RawEntrypointExtension,
@@ -14,7 +14,7 @@ from mode.utils.imports import (
     smart_import,
     symbol_by_name,
 )
-from mode.utils.mocks import Mock, call, mask_module, patch
+from fastasync.utils.mocks import Mock, call, mask_module, patch
 
 
 class test_FactoryMapping:
@@ -46,7 +46,7 @@ class test_FactoryMapping:
 
     def test_by_name(self, *, map):
         map._maybe_finalize = Mock()
-        with patch('mode.utils.imports.symbol_by_name') as sbn:
+        with patch('fastasync.utils.imports.symbol_by_name') as sbn:
             cls = map.by_name('redis')
             assert cls is sbn.return_value
             sbn.assert_called_once_with('redis', aliases=map.aliases)
@@ -54,7 +54,7 @@ class test_FactoryMapping:
 
     def test_by_name__ModuleNotFound(self, *, map):
         map._maybe_finalize = Mock()
-        with patch('mode.utils.imports.symbol_by_name') as sbn:
+        with patch('fastasync.utils.imports.symbol_by_name') as sbn:
             sbn.side_effect = ModuleNotFoundError()
             with pytest.raises(ModuleNotFoundError):
                 map.by_name('redis')
@@ -62,7 +62,7 @@ class test_FactoryMapping:
 
     def test_by_name__ModuleNotFound_dotname(self, *, map):
         map._maybe_finalize = Mock()
-        with patch('mode.utils.imports.symbol_by_name') as sbn:
+        with patch('fastasync.utils.imports.symbol_by_name') as sbn:
             sbn.side_effect = ModuleNotFoundError()
             with pytest.raises(ModuleNotFoundError):
                 map.by_name('redis.foo')
@@ -113,8 +113,8 @@ class test_symbol_by_name:
             symbol_by_name(':foo')
 
     def test_missing_module_but_valid_package(self):
-        from mode.utils import logging
-        assert symbol_by_name('.logging', package='mode.utils') is logging
+        from fastasync.utils import logging
+        assert symbol_by_name('.logging', package='fastasync.utils') is logging
 
     def test_already_object(self):
         obj = object()
@@ -155,7 +155,7 @@ def test_smart_import():
 
 def test_load_extension_classes():
     with patch_iter_entry_points():
-        with patch('mode.utils.imports.symbol_by_name') as sbn:
+        with patch('fastasync.utils.imports.symbol_by_name') as sbn:
             assert list(load_extension_classes('foo')) == [
                 EntrypointExtension('ep1', sbn.return_value),
                 EntrypointExtension('ep2', sbn.return_value),
@@ -166,7 +166,7 @@ def test_load_extension_classes():
 
 def test_load_extension_classes_syntax_error():
     with patch_iter_entry_points():
-        with patch('mode.utils.imports.symbol_by_name') as sbn:
+        with patch('fastasync.utils.imports.symbol_by_name') as sbn:
             sbn.side_effect = SyntaxError()
             with pytest.warns(UserWarning):
                 assert list(load_extension_classes('foo')) == []
@@ -227,7 +227,7 @@ def test_cwd_in_path__already_in_path():
 
 
 def test_import_from_cwd():
-    with patch('mode.utils.imports.cwd_in_path'):
+    with patch('fastasync.utils.imports.cwd_in_path'):
         with patch('importlib.import_module') as import_module:
             res = import_from_cwd('.foo', package='baz')
             assert res is import_module.return_value

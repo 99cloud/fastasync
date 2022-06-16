@@ -1,9 +1,9 @@
 import asyncio
 from time import monotonic
 import pytest
-from mode.utils.futures import done_future
-from mode.utils.mocks import Mock
-from mode.utils.queues import (
+from fastasync.utils.futures import done_future
+from fastasync.utils.mocks import Mock
+from fastasync.utils.queues import (
     FlowControlEvent,
     FlowControlQueue,
     ThrowableQueue,

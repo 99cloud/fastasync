@@ -1,10 +1,10 @@
 =====================================================
- ``mode.loop.gevent``
+ ``fastasync.loop.gevent``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.loop.gevent
+.. currentmodule:: fastasync.loop.gevent
 
 .. warning::
 

@@ -1,10 +1,10 @@
 =====================================================
- ``mode.loop.uvloop``
+ ``fastasync.loop.uvloop``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.loop.uvloop
+.. currentmodule:: fastasync.loop.uvloop
 
 .. warning::
 

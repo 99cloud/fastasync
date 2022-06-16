@@ -1,22 +1,22 @@
 =====================================================================
- Mode: AsyncIO Services
+ FastAsync: AsyncIO Services
 =====================================================================
 
 |build-status| |coverage| |license| |wheel| |pyversion| |pyimp|
 
 :Version: 4.3.2
-:Web: http://mode.readthedocs.org/
-:Download: http://pypi.org/project/mode
-:Source: http://github.com/ask/mode
+:Web: http://fastasync.readthedocs.org/
+:Download: http://pypi.org/project/fastasync
+:Source: http://github.com/99cloud/fastasync
 :Keywords: async, service, framework, actors, bootsteps, graph
 
-What is Mode?
+What is FastAsync?
 =============
 
-Mode is a very minimal Python library built-on top of AsyncIO that makes
+FastAsync is a very minimal Python library built-on top of AsyncIO that makes
 it much easier to use.
 
-In Mode your program is built out of services that you can start, stop,
+In FastAsync your program is built out of services that you can start, stop,
 restart and supervise.
 
 A service is just a class::
@@ -61,13 +61,13 @@ Services that depends on other services actually form a graph
 that you can visualize.
 
 Worker
-    Mode optionally provides a worker that you can use to start the program,
+    FastAsync optionally provides a worker that you can use to start the program,
     with support for logging, blocking detection, remote debugging and more.
 
     To start a worker add this to your program::
 
         if __name__ == '__main__':
-            from mode import Worker
+            from fastasync import Worker
             Worker(Service(), loglevel="info").execute_from_commandline()
 
     Then execute your program to start the worker:
@@ -162,12 +162,12 @@ To start the service, call ``await service.start()``::
 
     await service.start()
 
-Or you can use ``mode.Worker`` (or a subclass of this) to start your
+Or you can use ``fastasync.Worker`` (or a subclass of this) to start your
 services-based asyncio program from the console::
 
     if __name__ == '__main__':
-        import mode
-        worker = mode.Worker(
+        import fastasync
+        worker = fastasync.Worker(
             MyService(),
             loglevel='INFO',
             logfile=None,
@@ -234,25 +234,25 @@ Services can start other services, coroutines, and background tasks.
 Installation
 ============
 
-You can install Mode either via the Python Package Index (PyPI)
+You can install FastAsync either via the Python Package Index (PyPI)
 or from source.
 
 To install using `pip`::
 
-    $ pip install -U mode
+    $ pip install -U fastasync
 
 .. _installing-from-source:
 
 Downloading and installing from source
 --------------------------------------
 
-Download the latest version of Mode from
-http://pypi.org/project/mode
+Download the latest version of FastAsync from
+http://pypi.org/project/fastasync
 
 You can install it by doing the following::
 
-    $ tar xvfz mode-0.0.0.tar.gz
-    $ cd mode-0.0.0
+    $ tar xvfz fastasync-0.0.0.tar.gz
+    $ cd fastasync-0.0.0
     $ python setup.py build
     # python setup.py install
 
@@ -267,15 +267,15 @@ Using the development version
 With pip
 ~~~~~~~~
 
-You can install the latest snapshot of Mode using the following
+You can install the latest snapshot of FastAsync using the following
 pip command::
 
-    $ pip install https://github.com/ask/mode/zipball/master#egg=mode
+    $ pip install https://github.com/99cloud/fastasync/zipball/master#egg=fastasync
 
 FAQ
 ===
 
-Can I use Mode with Django/Flask/etc.?
+Can I use FastAsync with Django/Flask/etc.?
 --------------------------------------
 
 Yes! Use gevent/eventlet as a bridge to integrate with asyncio.
@@ -286,19 +286,19 @@ Using ``gevent``
 This works with any blocking Python library that can work with gevent.
 
 Using gevent requires you to install the ``aiogevent`` module,
-and you can install this as a bundle with Mode:
+and you can install this as a bundle with FastAsync:
 
 .. sourcecode:: console
 
-    $ pip install -U mode[gevent]
+    $ pip install -U fastasync[gevent]
 
 Then to actually use gevent as the event loop you have to
 execute the following in your entrypoint module (usually where you
 start the worker), before any other third party libraries are imported::
 
     #!/usr/bin/env python3
-    import mode.loop
-    mode.loop.use('gevent')
+    import fastasync.loop
+    fastasync.loop.use('gevent')
     # execute program
 
 REMEMBER: This must be located at the very top of the module,
@@ -311,31 +311,31 @@ Using ``eventlet``
 This works with any blocking Python library that can work with eventlet.
 
 Using eventlet requires you to install the ``aioeventlet`` module,
-and you can install this as a bundle with Mode:
+and you can install this as a bundle with FastAsync:
 
 .. sourcecode:: console
 
-    $ pip install -U mode[eventlet]
+    $ pip install -U fastasync[eventlet]
 
 Then to actually use eventlet as the event loop you have to
 execute the following in your entrypoint module (usually where you
 start the worker), before any other third party libraries are imported::
 
     #!/usr/bin/env python3
-    import mode.loop
-    mode.loop.use('eventlet')
+    import fastasync.loop
+    fastasync.loop.use('eventlet')
     # execute program
 
 REMEMBER: It's very important this is at the very top of the module,
 and that it executes before you import libraries.
 
-Can I use Mode with Tornado?
+Can I use FastAsync with Tornado?
 ----------------------------
 
 Yes! Use the ``tornado.platform.asyncio`` bridge:
 http://www.tornadoweb.org/en/stable/asyncio.html
 
-Can I use Mode with Twisted?
+Can I use FastAsync with Twisted?
 -----------------------------
 
 Yes! Use the asyncio reactor implementation:
@@ -391,11 +391,11 @@ If you get warnings such as this at shutdown:
 .. sourcecode:: text
 
     Task was destroyed but it is pending!
-    task: <Task pending coro=<Service._execute_task() running at /opt/devel/mode/mode/services.py:643> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x1100a7468>()]>>
+    task: <Task pending coro=<Service._execute_task() running at /opt/devel/fastasync/fastasync/services.py:643> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x1100a7468>()]>>
     Task was destroyed but it is pending!
-    task: <Task pending coro=<Service._execute_task() running at /opt/devel/mode/mode/services.py:643> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x1100a72e8>()]>>
+    task: <Task pending coro=<Service._execute_task() running at /opt/devel/fastasync/fastasync/services.py:643> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x1100a72e8>()]>>
     Task was destroyed but it is pending!
-    task: <Task pending coro=<Service._execute_task() running at /opt/devel/mode/mode/services.py:643> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x1100a7678>()]>>
+    task: <Task pending coro=<Service._execute_task() running at /opt/devel/fastasync/fastasync/services.py:643> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x1100a7678>()]>>
     Task was destroyed but it is pending!
     task: <Task pending coro=<Event.wait() running at /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/asyncio/locks.py:269> cb=[_release_waiter(<Future pendi...1100a7468>()]>)() at /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/asyncio/tasks.py:316]>
     Task was destroyed but it is pending!
@@ -407,7 +407,7 @@ Code of Conduct
 ===============
 
 Everyone interacting in the project's codebases, issue trackers, chat rooms,
-and mailing lists is expected to follow the Mode Code of Conduct.
+and mailing lists is expected to follow the FastAsync Code of Conduct.
 
 As contributors and maintainers of these projects, and in the interest of fostering
 an open and welcoming community, we pledge to respect all people who contribute
@@ -447,26 +447,26 @@ reported by opening an issue or contacting one or more of the project maintainer
 This Code of Conduct is adapted from the Contributor Covenant,
 version 1.2.0 available at http://contributor-covenant.org/version/1/2/0/.
 
-.. |build-status| image:: https://secure.travis-ci.org/ask/mode.png?branch=master
+.. |build-status| image:: https://secure.travis-ci.org/99cloud/fastasync.png?branch=master
     :alt: Build status
-    :target: https://travis-ci.org/ask/mode
+    :target: https://travis-ci.org/99cloud/fastasync
 
-.. |coverage| image:: https://codecov.io/github/ask/mode/coverage.svg?branch=master
-    :target: https://codecov.io/github/ask/mode?branch=master
+.. |coverage| image:: https://codecov.io/github/99cloud/fastasync/coverage.svg?branch=master
+    :target: https://codecov.io/github/99cloud/fastasync?branch=master
 
-.. |license| image:: https://img.shields.io/pypi/l/mode.svg
+.. |license| image:: https://img.shields.io/pypi/l/fastasync.svg
     :alt: BSD License
     :target: https://opensource.org/licenses/BSD-3-Clause
 
-.. |wheel| image:: https://img.shields.io/pypi/wheel/mode.svg
-    :alt: Mode can be installed via wheel
-    :target: http://pypi.org/project/mode/
+.. |wheel| image:: https://img.shields.io/pypi/wheel/fastasync.svg
+    :alt: FastAsync can be installed via wheel
+    :target: http://pypi.org/project/fastasync/
 
-.. |pyversion| image:: https://img.shields.io/pypi/pyversions/mode.svg
+.. |pyversion| image:: https://img.shields.io/pypi/pyversions/fastasync.svg
     :alt: Supported Python versions.
-    :target: http://pypi.org/project/mode/
+    :target: http://pypi.org/project/fastasync/
 
-.. |pyimp| image:: https://img.shields.io/pypi/implementation/mode.svg
+.. |pyimp| image:: https://img.shields.io/pypi/implementation/fastasync.svg
     :alt: Supported Python implementations.
-    :target: http://pypi.org/project/mode/
+    :target: http://pypi.org/project/fastasync/
 

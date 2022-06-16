@@ -1,5 +1,5 @@
 import pytest
-from mode.utils.trees import Node
+from fastasync.utils.trees import Node
 
 
 def test_Node():

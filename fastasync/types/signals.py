@@ -1,4 +1,4 @@
-"""Type classes for :mod:`mode.signals`."""
+"""Type classes for :mod:`fastasync.signals`."""
 import abc
 import asyncio
 import typing

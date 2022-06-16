@@ -1,11 +1,11 @@
 =====================================================
- ``mode.utils.compat``
+ ``fastasync.utils.compat``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.utils.compat
+.. currentmodule:: fastasync.utils.compat
 
-.. automodule:: mode.utils.compat
+.. automodule:: fastasync.utils.compat
     :members:
     :undoc-members:

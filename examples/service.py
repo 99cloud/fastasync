@@ -1,12 +1,12 @@
-import mode
+import fastasync
 
 
-class MyService(mode.Service):
+class MyService(fastasync.Service):
 
     async def on_started(self) -> None:
         self.log.info('Service started (hit ctrl+C to exit).')
 
-    @mode.Service.task
+    @fastasync.Service.task
     async def _background_task(self) -> None:
         print('BACKGROUND TASK STARTING')
         while not self.should_stop:
@@ -15,7 +15,7 @@ class MyService(mode.Service):
 
 
 if __name__ == '__main__':
-    mode.Worker(
+    fastasync.Worker(
         MyService(),
         loglevel='INFO',
         logfile=None,  # stderr

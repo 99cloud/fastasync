@@ -1,14 +1,14 @@
 import asyncio
 import logging
 from typing import ContextManager
-from mode.utils.locks import Event
-from mode.utils.mocks import Mock
-from mode.utils.typing import AsyncContextManager
-import mode
+from fastasync.utils.locks import Event
+from fastasync.utils.mocks import Mock
+from fastasync.utils.typing import AsyncContextManager
+import fastasync
 import pytest
 
 
-class X(mode.Service):
+class X(fastasync.Service):
     ...
 
 
@@ -36,14 +36,14 @@ class AsyncContext(AsyncContextManager):
         self.releases += 1
 
 
-class Z(mode.Service):
+class Z(fastasync.Service):
     x: X = None
 
     wait_for_shutdown = True
     did_set_shutdown = False
     background_wakeup = 0
 
-    @mode.task
+    @fastasync.task
     async def _shutdown_setter(self):
         try:
             while not self.should_stop:
@@ -68,7 +68,7 @@ class Z(mode.Service):
         await asyncio.sleep(10000000000000000000.0)
 
 
-class Y(mode.Service):
+class Y(fastasync.Service):
     z: Z
     sync_context = None
     async_context = None
@@ -81,7 +81,7 @@ class Y(mode.Service):
         self.async_context = await self.add_async_context(AsyncContext())
 
 
-class Complex(mode.Service):
+class Complex(fastasync.Service):
     x: X
     y: Y
 
@@ -275,11 +275,11 @@ async def test_wait__multiple_events():
             fut1.cancel()
 
 
-class MundaneLogsDefault(mode.Service):
+class MundaneLogsDefault(fastasync.Service):
     ...
 
 
-class MundaneLogsDebug(mode.Service):
+class MundaneLogsDebug(fastasync.Service):
     mundane_level = 'debug'
 
 
@@ -293,7 +293,7 @@ async def test_mundane_level__default(service_cls, expected_level):
     await assert_mundane_level_is(expected_level, service)
 
 
-async def assert_mundane_level_is(level: int, service: mode.ServiceT) -> None:
+async def assert_mundane_level_is(level: int, service: fastasync.ServiceT) -> None:
     logger = service.log = Mock(name='service.log')
     async with service:
         ...

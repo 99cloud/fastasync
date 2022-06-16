@@ -1,11 +1,11 @@
 =====================================================
- ``mode.utils.typing``
+ ``fastasync.utils.typing``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.utils.typing
+.. currentmodule:: fastasync.utils.typing
 
-.. automodule:: mode.utils.typing
+.. automodule:: fastasync.utils.typing
     :members:
     :undoc-members:

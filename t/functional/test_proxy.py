@@ -1,7 +1,7 @@
 import pytest
-from mode import Service, label, shortlabel
-from mode.proxy import ServiceProxy
-from mode.utils.mocks import AsyncMock, MagicMock, Mock
+from fastasync import Service, label, shortlabel
+from fastasync.proxy import ServiceProxy
+from fastasync.utils.mocks import AsyncMock, MagicMock, Mock
 
 
 class Proxy(ServiceProxy):

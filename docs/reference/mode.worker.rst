@@ -1,11 +1,11 @@
 =====================================================
- ``mode.worker``
+ ``fastasync.worker``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.worker
+.. currentmodule:: fastasync.worker
 
-.. automodule:: mode.worker
+.. automodule:: fastasync.worker
     :members:
     :undoc-members:

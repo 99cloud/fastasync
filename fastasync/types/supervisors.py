@@ -1,8 +1,8 @@
-"""Type classes for :mod:`mode.supervisors`."""
+"""Type classes for :mod:`fastasync.supervisors`."""
 import abc
 import typing
 from typing import Any, Awaitable, Callable, Optional, Type
-from mode.utils.times import Seconds
+from fastasync.utils.times import Seconds
 
 if typing.TYPE_CHECKING:
     from .services import ServiceT

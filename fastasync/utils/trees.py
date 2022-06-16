@@ -118,7 +118,7 @@ class Node(NodeT[T]):
             node = node.parent
 
     def as_graph(self) -> DependencyGraphT:
-        """Convert to :class:`~mode.utils.graphs.DependencyGraph`."""
+        """Convert to :class:`~fastasync.utils.graphs.DependencyGraph`."""
         graph = DependencyGraph()
         stack: Deque[NodeT] = Deque([self])
         while stack:

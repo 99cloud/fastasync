@@ -104,9 +104,9 @@ class ServiceBase(ServiceT):
     def _init_subclass_logger(cls) -> None:
         # make sure class has a logger.
         logger = cast(Optional[logging.Logger], cls.logger)
-        if logger is None or getattr(logger, '__modex__', False):
+        if logger is None or getattr(logger, '__fastasyncx__', False):
             _logger = cls.logger = get_logger(cls.__module__)
-            _logger.__modex__ = True  # type: ignore
+            _logger.__fastasyncx__ = True  # type: ignore
 
     def __init__(self, *, loop: asyncio.AbstractEventLoop = None) -> None:
         self.log = CompositeLogger(self.logger, formatter=self._format_log)
@@ -981,7 +981,7 @@ class Service(ServiceBase, ServiceCallbacks):
         """Sleep ``interval`` seconds for every iteration.
 
         This is an async iterator that takes advantage
-        of :func:`~mode.timers.Timer` to monitor drift and timer
+        of :func:`~fastasync.timers.Timer` to monitor drift and timer
         oerlap.
 
         Uses ``Service.sleep`` so exits fast when the service is

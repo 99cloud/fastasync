@@ -1,11 +1,11 @@
 =====================================================
- ``mode.utils.tracebacks``
+ ``fastasync.utils.tracebacks``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.utils.tracebacks
+.. currentmodule:: fastasync.utils.tracebacks
 
-.. automodule:: mode.utils.tracebacks
+.. automodule:: fastasync.utils.tracebacks
     :members:
     :undoc-members:

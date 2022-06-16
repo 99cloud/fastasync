@@ -87,11 +87,11 @@ DEFAULT_COLORS = {
 
 DEFAULT_FORMATTERS = {
     'default': {
-        '()': 'mode.utils.logging.DefaultFormatter',
+        '()': 'fastasync.utils.logging.DefaultFormatter',
         'format': DEFAULT_FORMAT,
     },
     'colored': {
-        '()': 'mode.utils.logging.ExtensionFormatter',
+        '()': 'fastasync.utils.logging.ExtensionFormatter',
         'format': DEFAULT_COLOR_FORMAT,
         'log_colors': DEFAULT_COLORS,
         'stream': sys.stdout,
@@ -151,7 +151,7 @@ def get_logger(name: str) -> Logger:
     return logger
 
 
-redirect_logger = get_logger('mode.redirect')
+redirect_logger = get_logger('fastasync.redirect')
 
 
 class HasLog(Protocol):
@@ -606,9 +606,9 @@ class flight_recorder(ContextManager, LogSeverityMixin):
     For example if you have a background thread that is sometimes
     hanging::
 
-        class RedisCache(mode.Service):
+        class RedisCache(fastasync.Service):
 
-            @mode.timer(1.0)
+            @fastasync.timer(1.0)
             def _background_refresh(self) -> None:
                 self._users = await self.redis_client.get(USER_KEY)
                 self._posts = await self.redis_client.get(POSTS_KEY)
@@ -622,13 +622,13 @@ class flight_recorder(ContextManager, LogSeverityMixin):
 
     .. sourcecode:: python
 
-        logger = mode.get_logger(__name__)
+        logger = fastasync.get_logger(__name__)
 
-        class RedisCache(mode.Service):
+        class RedisCache(fastasync.Service):
 
-            @mode.timer(1.0)
+            @fastasync.timer(1.0)
             def _background_refresh(self) -> None:
-                with mode.flight_recorder(logger, timeout=10.0) as on_timeout:
+                with fastasync.flight_recorder(logger, timeout=10.0) as on_timeout:
                     on_timeout.info(f'+redis_client.get({USER_KEY!r})')
                     await self.redis_client.get(USER_KEY)
                     on_timeout.info(f'-redis_client.get({USER_KEY!r})')
@@ -891,7 +891,7 @@ class FileLogProxy(TextIO):
         ...
 
     @property
-    def mode(self) -> str:
+    def fastasync(self) -> str:
         return 'w'
 
     @property

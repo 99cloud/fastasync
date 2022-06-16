@@ -1,11 +1,11 @@
 =====================================================
- ``mode.types``
+ ``fastasync.types``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.types
+.. currentmodule:: fastasync.types
 
-.. automodule:: mode.types
+.. automodule:: fastasync.types
     :members:
     :undoc-members:

@@ -7,23 +7,23 @@
 :Release: |version|
 :Date: |today|
 
-Mode
+FastAsync
 ====
 
 .. toctree::
     :maxdepth: 1
 
-    mode
-    mode.debug
-    mode.exceptions
-    mode.locals
-    mode.proxy
-    mode.services
-    mode.signals
-    mode.supervisors
-    mode.threads
-    mode.timers
-    mode.worker
+    fastasync
+    fastasync.debug
+    fastasync.exceptions
+    fastasync.locals
+    fastasync.proxy
+    fastasync.services
+    fastasync.signals
+    fastasync.supervisors
+    fastasync.threads
+    fastasync.timers
+    fastasync.worker
 
 Typehints
 =========
@@ -31,10 +31,10 @@ Typehints
 .. toctree::
     :maxdepth: 1
 
-    mode.types
-    mode.types.services
-    mode.types.signals
-    mode.types.supervisors
+    fastasync.types
+    fastasync.types.services
+    fastasync.types.signals
+    fastasync.types.supervisors
 
 Event Loops
 ===========
@@ -42,10 +42,10 @@ Event Loops
 .. toctree::
     :maxdepth: 1
 
-    mode.loop
-    mode.loop.eventlet
-    mode.loop.gevent
-    mode.loop.uvloop
+    fastasync.loop
+    fastasync.loop.eventlet
+    fastasync.loop.gevent
+    fastasync.loop.uvloop
 
 Utils
 =====
@@ -53,24 +53,24 @@ Utils
 .. toctree::
     :maxdepth: 1
 
-    mode.utils.aiter
-    mode.utils.collections
-    mode.utils.compat
-    mode.utils.contexts
-    mode.utils.futures
-    mode.utils.graphs
-    mode.utils.imports
-    mode.utils.locals
-    mode.utils.locks
-    mode.utils.logging
-    mode.utils.loops
-    mode.utils.mocks
-    mode.utils.objects
-    mode.utils.queues
-    mode.utils.text
-    mode.utils.times
-    mode.utils.tracebacks
-    mode.utils.trees
-    mode.utils.types.graphs
-    mode.utils.types.trees
-    mode.utils.typing
+    fastasync.utils.aiter
+    fastasync.utils.collections
+    fastasync.utils.compat
+    fastasync.utils.contexts
+    fastasync.utils.futures
+    fastasync.utils.graphs
+    fastasync.utils.imports
+    fastasync.utils.locals
+    fastasync.utils.locks
+    fastasync.utils.logging
+    fastasync.utils.loops
+    fastasync.utils.mocks
+    fastasync.utils.objects
+    fastasync.utils.queues
+    fastasync.utils.text
+    fastasync.utils.times
+    fastasync.utils.tracebacks
+    fastasync.utils.trees
+    fastasync.utils.types.graphs
+    fastasync.utils.types.trees
+    fastasync.utils.typing

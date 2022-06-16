@@ -166,17 +166,17 @@ def parse_symbol(s: str, *,
             no ``package`` argument is specified.
 
     Examples:
-        >>> parse_symbol('mode.services')
-        ParsedSymbol(module_name='mode.services', attribute_name=None)
+        >>> parse_symbol('fastasync.services')
+        ParsedSymbol(module_name='fastasync.services', attribute_name=None)
 
-        >>> parse_symbol('.services', package='mode')
+        >>> parse_symbol('.services', package='fastasync')
         ParsedSymbol(module_name='.services', attribute_name=None)
 
-        >>> parse_symbol('mode.services.Service')
-        ParsedSymbol(module_name='mode.services', attribute_name='Service')
+        >>> parse_symbol('fastasync.services.Service')
+        ParsedSymbol(module_name='fastasync.services', attribute_name='Service')
 
-        >>> parse_symbol('mode.services:Service')
-        ParsedSymbol(module_name='mode.services', attribute_name='Service')
+        >>> parse_symbol('fastasync.services:Service')
+        ParsedSymbol(module_name='fastasync.services', attribute_name='Service')
     """
     module_name: Optional[str]
     attribute_name: Optional[str]

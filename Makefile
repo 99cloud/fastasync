@@ -1,4 +1,4 @@
-PROJ ?= mode
+PROJ ?= fastasync
 PGPIDENT ?= "Faust Security Team"
 PYTHON ?= python
 PYTEST ?= py.test

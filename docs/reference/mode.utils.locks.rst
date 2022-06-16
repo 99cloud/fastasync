@@ -1,11 +1,11 @@
 =====================================================
- ``mode.utils.locks``
+ ``fastasync.utils.locks``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.utils.locks
+.. currentmodule:: fastasync.utils.locks
 
-.. automodule:: mode.utils.locks
+.. automodule:: fastasync.utils.locks
     :members:
     :undoc-members:

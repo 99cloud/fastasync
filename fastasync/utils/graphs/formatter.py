@@ -1,8 +1,8 @@
 """Formatting graphs."""
 from typing import Any, Mapping
 
-from mode.utils.objects import label
-from mode.utils.types.graphs import GraphFormatterT, _T
+from fastasync.utils.objects import label
+from fastasync.utils.types.graphs import GraphFormatterT, _T
 
 
 def dedent_initial(s: str, n: int = 4) -> str:

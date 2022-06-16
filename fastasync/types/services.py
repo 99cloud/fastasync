@@ -1,4 +1,4 @@
-"""Type classes for :mod:`mode.services`."""
+"""Type classes for :mod:`fastasync.services`."""
 import abc
 import asyncio
 from typing import (
@@ -14,9 +14,9 @@ from typing import (
     Union,
 )
 
-from mode.utils.contexts import AsyncExitStack, ExitStack
-from mode.utils.types.trees import NodeT
-from mode.utils.typing import AsyncContextManager
+from fastasync.utils.contexts import AsyncExitStack, ExitStack
+from fastasync.utils.types.trees import NodeT
+from fastasync.utils.typing import AsyncContextManager
 
 from .supervisors import SupervisorStrategyT
 
@@ -53,7 +53,7 @@ class ServiceT(AsyncContextManager):
     """Abstract type for an asynchronous service that can be started/stopped.
 
     See Also:
-        :class:`mode.Service`.
+        :class:`fastasync.Service`.
     """
 
     Diag: Type[DiagT]

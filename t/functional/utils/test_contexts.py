@@ -1,5 +1,5 @@
 import pytest
-from mode.utils.contexts import asyncnullcontext
+from fastasync.utils.contexts import asyncnullcontext
 
 
 @pytest.mark.asyncio

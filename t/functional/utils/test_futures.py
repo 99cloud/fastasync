@@ -1,7 +1,7 @@
 import asyncio
 import inspect
 import pytest
-from mode.utils.futures import (
+from fastasync.utils.futures import (
     StampedeWrapper,
     done_future,
     maybe_async,
@@ -10,7 +10,7 @@ from mode.utils.futures import (
     maybe_set_result,
     stampede,
 )
-from mode.utils.mocks import Mock
+from fastasync.utils.mocks import Mock
 
 
 class X:

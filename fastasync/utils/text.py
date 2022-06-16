@@ -48,7 +48,7 @@ def didyoumean(haystack: Iterable[str], needle: str,
     """Generate message with helpful list of alternatives.
 
     Examples:
-        >>> raise Exception(f'Unknown mode: {mode}! {didyoumean(modes, mode)}')
+        >>> raise Exception(f'Unknown fastasync: {fastasync}! {didyoumean(fastasyncs, fastasync)}')
 
         >>> didyoumean(['foo', 'bar', 'baz'], 'boo')
         'Did you mean foo?'

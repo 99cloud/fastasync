@@ -1,5 +1,5 @@
 import pytest
-from mode.utils import text
+from fastasync.utils import text
 
 
 @pytest.mark.parametrize('input,expected', [

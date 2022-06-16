@@ -3,10 +3,10 @@ import signal
 import sys
 from contextlib import contextmanager
 from signal import Signals
-from mode import Service
-from mode.debug import BlockingDetector
-from mode.worker import Worker, exiting
-from mode.utils.mocks import (
+from fastasync import Service
+from fastasync.debug import BlockingDetector
+from fastasync.worker import Worker, exiting
+from fastasync.utils.mocks import (
     AsyncMock,
     Mock,
     call,
@@ -34,7 +34,7 @@ class test_Worker:
 
     def setup_method(self, method):
         self.setup_logging_patch = patch(
-            'mode.utils.logging.setup_logging')
+            'fastasync.utils.logging.setup_logging')
         self.setup_logging = self.setup_logging_patch.start()
 
     def teardown_method(self):
@@ -134,7 +134,7 @@ class test_Worker:
     def test_setup_logging_raises_exception(self, worker):
         with patch('sys.stderr'):
             with patch('traceback.print_stack') as print_stack:
-                with patch('mode.utils.logging.setup_logging') as sl:
+                with patch('fastasync.utils.logging.setup_logging') as sl:
                     sl.side_effect = KeyError('foo')
                     with pytest.raises(KeyError):
                         worker._setup_logging()
@@ -145,7 +145,7 @@ class test_Worker:
 
     def test_setup_logging__no_redirect(self, worker):
         worker.redirect_stdouts = False
-        with patch('mode.utils.logging.setup_logging'):
+        with patch('fastasync.utils.logging.setup_logging'):
             worker._setup_logging()
 
     def test_stop_and_shutdown(self, worker):
@@ -225,7 +225,7 @@ class test_Worker:
 
     @pytest.mark.asyncio
     async def test__cry(self, worker):
-        with patch('mode.utils.logging.cry') as cry:
+        with patch('fastasync.utils.logging.cry') as cry:
             await worker._cry()
             cry.assert_called_once_with(file=worker.stderr)
 
@@ -359,7 +359,7 @@ class test_Worker:
             sleep.coro.assert_called_once_with(1.0, loop=worker.loop)
 
     def test__gather_all(self, worker):
-        with patch('mode.worker.all_tasks') as all_tasks:
+        with patch('fastasync.worker.all_tasks') as all_tasks:
             with patch('asyncio.sleep'):
                 all_tasks.return_value = [Mock(), Mock(), Mock()]
                 worker.loop = Mock()
@@ -370,7 +370,7 @@ class test_Worker:
                     task.cancel.assert_called_once_with()
 
     def test__gather_all_early(self, worker):
-        with patch('mode.worker.all_tasks') as all_tasks:
+        with patch('fastasync.worker.all_tasks') as all_tasks:
             with patch('asyncio.sleep'):
                 worker.loop = Mock()
 

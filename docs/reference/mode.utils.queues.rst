@@ -1,11 +1,11 @@
 =====================================================
- ``mode.utils.queues``
+ ``fastasync.utils.queues``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.utils.queues
+.. currentmodule:: fastasync.utils.queues
 
-.. automodule:: mode.utils.queues
+.. automodule:: fastasync.utils.queues
     :members:
     :undoc-members:

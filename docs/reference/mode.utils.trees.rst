@@ -1,11 +1,11 @@
 =====================================================
- ``mode.utils.trees``
+ ``fastasync.utils.trees``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.utils.trees
+.. currentmodule:: fastasync.utils.trees
 
-.. automodule:: mode.utils.trees
+.. automodule:: fastasync.utils.trees
     :members:
     :undoc-members:

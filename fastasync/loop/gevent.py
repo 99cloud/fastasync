@@ -1,7 +1,7 @@
 """Enable :pypi:`gevent` support for :mod:`asyncio`."""
 import os
 import warnings
-os.environ['GEVENT_LOOP'] = 'mode.loop._gevent_loop.Loop'
+os.environ['GEVENT_LOOP'] = 'fastasync.loop._gevent_loop.Loop'
 try:
     import gevent
     import gevent.monkey

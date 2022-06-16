@@ -1,11 +1,11 @@
 =====================================================
- ``mode.threads``
+ ``fastasync.threads``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.threads
+.. currentmodule:: fastasync.threads
 
-.. automodule:: mode.threads
+.. automodule:: fastasync.threads
     :members:
     :undoc-members:

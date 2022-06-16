@@ -1,11 +1,11 @@
 =====================================================
- ``mode.types.supervisors``
+ ``fastasync.types.supervisors``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.types.supervisors
+.. currentmodule:: fastasync.types.supervisors
 
-.. automodule:: mode.types.supervisors
+.. automodule:: fastasync.types.supervisors
     :members:
     :undoc-members:

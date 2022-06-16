@@ -1,11 +1,11 @@
 =====================================================
- ``mode.signals``
+ ``fastasync.signals``
 =====================================================
 
 .. contents::
     :local:
-.. currentmodule:: mode.signals
+.. currentmodule:: fastasync.signals
 
-.. automodule:: mode.signals
+.. automodule:: fastasync.signals
     :members:
     :undoc-members:
